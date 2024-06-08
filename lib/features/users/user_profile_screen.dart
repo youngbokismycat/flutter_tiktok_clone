@@ -5,12 +5,21 @@ import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/discover/doscover_screen.dart';
 import 'package:tiktik_clone/features/users/widgets/count_counts_what.dart';
 import 'package:tiktik_clone/features/users/widgets/persistent_tab_bar.dart';
+import 'package:tiktik_clone/features/videos/settings_screen.dart';
 
 class UserProfileScreen extends StatelessWidget {
   const UserProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    void onGearPressed() {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const SettingsScreen(),
+        ),
+      );
+    }
+
     return SafeArea(
       child: DefaultTabController(
         length: 2,
@@ -24,7 +33,7 @@ class UserProfileScreen extends StatelessWidget {
                 ),
                 actions: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: onGearPressed,
                     icon: const FaIcon(
                       FontAwesomeIcons.gear,
                       size: Sizes.size20,
