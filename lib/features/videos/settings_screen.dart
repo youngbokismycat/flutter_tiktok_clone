@@ -63,7 +63,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       isDestructiveAction: true,
                       onPressed: () => Navigator.of(context).pop(),
                       child: const Text(
-                        "Noo I'm suure",
+                        "Noo I'm suuure",
                       ),
                     ),
                     const CupertinoDialogAction(
