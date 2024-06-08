@@ -29,7 +29,7 @@ class UserProfileScreen extends StatelessWidget {
             return [
               SliverAppBar(
                 title: const Text(
-                  "Youngbok",
+                  "YoungBBok",
                 ),
                 actions: [
                   IconButton(
