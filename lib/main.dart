@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/discover/doscover_screen.dart';
 import 'package:tiktik_clone/features/inbox/activity_screen.dart';
@@ -7,7 +8,13 @@ import 'package:tiktik_clone/features/main_navigation/main_navigation_screen.dar
 import 'package:tiktik_clone/features/onboarding/interests_screen.dart';
 import 'package:tiktik_clone/features/authentication/sign_up_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle.light,
+  );
+
   runApp(const TikTokApp());
 }
 
@@ -16,6 +23,7 @@ class TikTokApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'TikTok Clone',
       theme: ThemeData(
         splashColor: Colors.transparent,

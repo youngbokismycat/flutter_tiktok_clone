@@ -19,71 +19,99 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: Sizes.size40),
-          child: Column(
-            children: [
-              Gaps.v80,
-              Text(
-                "Sign up for TikTok",
-                style: TextStyle(
-                  fontSize: Sizes.size28,
-                  fontWeight: FontWeight.w700,
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return Scaffold(
+          body: SingleChildScrollView(
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: Sizes.size40),
+                child: Column(
+                  children: [
+                    Gaps.v80,
+                    const Text(
+                      "Sign up for TikTok",
+                      style: TextStyle(
+                        fontSize: Sizes.size28,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Gaps.v20,
+                    const Text(
+                      "Create a profile, follow other accounts, make your own videos, and more.",
+                      style: TextStyle(
+                        fontSize: Sizes.size16,
+                        color: Colors.black45,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Gaps.v40,
+                    if (orientation == Orientation.portrait) ...[
+                      const AuthButton(
+                          widget: UsernameScreen(),
+                          icon: FaIcon(FontAwesomeIcons.user),
+                          text: "Use email &  password"),
+                      Gaps.v16,
+                      const AuthButton(
+                          widget: Placeholder(),
+                          icon: FaIcon(FontAwesomeIcons.apple),
+                          text: "Continue with Apple"),
+                      Gaps.v16,
+                    ],
+                    if (orientation == Orientation.landscape)
+                      const Row(
+                        children: [
+                          Expanded(
+                            child: AuthButton(
+                                widget: UsernameScreen(),
+                                icon: FaIcon(FontAwesomeIcons.user),
+                                text: "Use email &  password"),
+                          ),
+                          Gaps.h16,
+                          Expanded(
+                            child: AuthButton(
+                                widget: Placeholder(),
+                                icon: FaIcon(FontAwesomeIcons.apple),
+                                text: "Continue with Apple"),
+                          ),
+                          Gaps.v16,
+                        ],
+                      )
+                  ],
                 ),
               ),
-              Gaps.v20,
-              Text(
-                "Create a profile, follow other accounts, make your own videos, and more.",
-                style: TextStyle(
-                  fontSize: Sizes.size16,
-                  color: Colors.black45,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Gaps.v40,
-              AuthButton(
-                  widget: UsernameScreen(),
-                  icon: FaIcon(FontAwesomeIcons.user),
-                  text: "Use email &  password"),
-              Gaps.v16,
-              AuthButton(
-                  widget: Placeholder(),
-                  icon: FaIcon(FontAwesomeIcons.apple),
-                  text: "Continue with Apple"),
-            ],
+            ),
           ),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade50,
-        elevation: 1,
-        child: Padding(
-          padding: const EdgeInsets.only(
-            bottom: Sizes.size20,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Already have an account?",
+          bottomNavigationBar: BottomAppBar(
+            color: Colors.grey.shade50,
+            elevation: 1,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                bottom: Sizes.size20,
               ),
-              Gaps.h5,
-              GestureDetector(
-                onTap: () => _onLogInTap(context),
-                child: Text(
-                  "Log In",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.w600,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Already have an account?",
                   ),
-                ),
+                  Gaps.h5,
+                  GestureDetector(
+                    onTap: () => _onLogInTap(context),
+                    child: Text(
+                      "Log In",
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
