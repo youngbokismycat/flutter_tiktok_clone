@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -29,6 +30,7 @@ class _VideoPostState extends State<VideoPost>
   final VideoPlayerController _videoPlayerController =
       VideoPlayerController.asset("assets/videos/video.mp4");
   bool _isPaused = false;
+  bool _isVolume0 = false;
   final Duration _duration = const Duration(milliseconds: 200);
   late final AnimationController _animationController;
 
@@ -56,6 +58,10 @@ class _VideoPostState extends State<VideoPost>
     await _videoPlayerController.initialize();
     setState(() {});
     await _videoPlayerController.setLooping(true);
+    if (kIsWeb) {
+      _isVolume0 = true;
+      await _videoPlayerController.setVolume(0);
+    }
     _videoPlayerController.addListener(_onVideoChange);
   }
 
@@ -110,6 +116,12 @@ class _VideoPostState extends State<VideoPost>
     );
   }
 
+  void _onEnableVolumeTap() {
+    _isVolume0 = false;
+    _videoPlayerController.setVolume(10);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
@@ -148,14 +160,35 @@ class _VideoPostState extends State<VideoPost>
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             bottom: 20,
             left: 20,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                Opacity(
+                  opacity: _isVolume0 ? 1 : 0,
+                  child: GestureDetector(
+                    onTap: _onEnableVolumeTap,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Sizes.size10,
+                        vertical: Sizes.size10,
+                      ),
+                      color: Colors.white,
+                      child: const Text(
+                        "Enable Volume",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Gaps.v10,
+                const Text(
                   "@youngbok",
                   style: TextStyle(
                     fontSize: Sizes.size20,
@@ -164,7 +197,7 @@ class _VideoPostState extends State<VideoPost>
                   ),
                 ),
                 Gaps.v16,
-                Text(
+                const Text(
                   "This is my Cat YOUNBOK!! ",
                   style: TextStyle(
                     fontSize: Sizes.size14 + Sizes.size1,
@@ -173,7 +206,7 @@ class _VideoPostState extends State<VideoPost>
                   ),
                 ),
                 Gaps.v3,
-                SizedBox(
+                const SizedBox(
                   width: 300,
                   child: ReadMoreText(
                     '#myCat #myHome #myMe #SingleTickerProviderStateMixin #Fuckyou #FuckredScreen #FUCK ALL',
@@ -198,7 +231,7 @@ class _VideoPostState extends State<VideoPost>
                   ),
                 ),
                 Gaps.v16,
-                Row(
+                const Row(
                   children: [
                     FaIcon(
                       FontAwesomeIcons.music,
