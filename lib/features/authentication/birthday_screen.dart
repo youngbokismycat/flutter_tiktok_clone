@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/authentication/email_screen.dart';
@@ -34,13 +35,7 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
   }
 
   void onNextTap() {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const InterestsScreen(),
-      ),
-      (route) => false,
-    );
+    context.pushReplacementNamed(InterestsScreen.routeName);
   }
 
   void _setTextFieldDate(DateTime date) {
@@ -70,16 +65,18 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
               ),
             ),
             Gaps.v8,
-            const Text(
-              "Your birthday won't be shown publicly",
-              style: TextStyle(
+            const Opacity(
+              opacity: 0.7,
+              child: Text(
+                "Your birthday won't be shown publicly",
+                style: TextStyle(
                   fontSize: Sizes.size14,
-                  color: Colors.black45,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
             ),
             Gaps.v16,
             TextField(
-              style: const TextStyle(color: Colors.black),
               enabled: false,
               controller: _birthdaycontroller,
               decoration: InputDecoration(

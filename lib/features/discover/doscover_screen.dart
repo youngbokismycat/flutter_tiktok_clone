@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktik_clone/constants/breakpoints.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
+import 'package:tiktik_clone/l10n/utils.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 final List<String> tabs = [
@@ -58,6 +60,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
@@ -80,55 +83,63 @@ class _DiscoverScreenState extends State<DiscoverScreen>
               ),
             )
           ],
-          title: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  onChanged: _onChanged,
-                  controller: _textEditingController,
-                  textAlign: TextAlign.left,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(Sizes.size5),
-                    ),
-                    hintText: "Search",
-                    filled: true,
-                    fillColor: Colors.grey.shade100,
-                    isDense: true,
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: Sizes.size12,
-                    ),
-                    iconColor: Colors.grey,
-                    prefixIcon: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: Sizes.size12),
-                      child: FaIcon(
-                        FontAwesomeIcons.magnifyingGlass,
-                        color: Colors.black,
-                        size: Sizes.size16,
+          title: ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxWidth: Breakpoints.sm,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: TextField(
+                    onChanged: _onChanged,
+                    controller: _textEditingController,
+                    textAlign: TextAlign.left,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(Sizes.size5),
                       ),
+                      hintText: "Search",
+                      filled: true,
+                      fillColor: isDarkMode(context)
+                          ? Colors.grey.shade700
+                          : Colors.grey.shade100,
+                      isDense: true,
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: Sizes.size12,
+                      ),
+                      iconColor: Colors.grey,
+                      prefixIcon: const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: Sizes.size12),
+                        child: FaIcon(
+                          FontAwesomeIcons.magnifyingGlass,
+                          color: Colors.black,
+                          size: Sizes.size16,
+                        ),
+                      ),
+                      suffixIcon: _textEditingController.text.isNotEmpty
+                          ? GestureDetector(
+                              onTap: _onTapClear,
+                              child: const Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: Sizes.size10,
+                                ),
+                                child: FaIcon(
+                                  FontAwesomeIcons.solidCircleXmark,
+                                  color: Colors.grey,
+                                  size: Sizes.size16,
+                                ),
+                              ),
+                            )
+                          : null,
+                      prefixIconConstraints: const BoxConstraints(),
+                      suffixIconConstraints: const BoxConstraints(),
                     ),
-                    suffixIcon: _textEditingController.text.isNotEmpty
-                        ? GestureDetector(
-                            onTap: _onTapClear,
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: Sizes.size10,
-                              ),
-                              child: FaIcon(
-                                FontAwesomeIcons.solidCircleXmark,
-                                color: Colors.grey,
-                                size: Sizes.size16,
-                              ),
-                            ),
-                          )
-                        : null,
-                    prefixIconConstraints: const BoxConstraints(),
-                    suffixIconConstraints: const BoxConstraints(),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           bottom: TabBar(
             controller: _tabController,
@@ -137,9 +148,6 @@ class _DiscoverScreenState extends State<DiscoverScreen>
               horizontal: Sizes.size16,
             ),
             isScrollable: true,
-            unselectedLabelColor: Colors.grey.shade500,
-            labelColor: Colors.black,
-            indicatorColor: Colors.black,
             labelStyle: const TextStyle(
               fontWeight: FontWeight.w700,
             ),
@@ -160,8 +168,8 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                 Sizes.size9,
               ),
               itemCount: 20,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: width > Breakpoints.lg ? 5 : 2,
                 crossAxisSpacing: Sizes.size9,
                 mainAxisSpacing: Sizes.size9,
                 childAspectRatio: 9 / 20.5,
@@ -195,7 +203,9 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                   Gaps.v7,
                   DefaultTextStyle(
                     style: TextStyle(
-                      color: Colors.grey.shade500,
+                      color: isDarkMode(context)
+                          ? Colors.grey.shade300
+                          : Colors.grey.shade500,
                       fontWeight: FontWeight.w700,
                     ),
                     child: Row(

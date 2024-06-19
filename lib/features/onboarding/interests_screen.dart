@@ -5,6 +5,9 @@ import 'package:tiktik_clone/features/onboarding/tutorial_screen.dart';
 import 'package:tiktik_clone/features/onboarding/widgets/interest_button.dart';
 
 class InterestsScreen extends StatefulWidget {
+  static const String routeName = 'interests';
+  static const String routeUrl = "/tutorial";
+
   const InterestsScreen({super.key});
   static const interests = [
     "Daily Life",

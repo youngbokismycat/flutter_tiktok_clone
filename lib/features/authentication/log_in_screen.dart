@@ -7,14 +7,12 @@ import 'package:tiktik_clone/features/authentication/sign_up_screen.dart';
 import 'package:tiktik_clone/features/authentication/widgets/auth_button.dart';
 
 class LogInScreen extends StatelessWidget {
+  static const String routeName = 'logIn';
+  static const String routeUrl = '/login';
   const LogInScreen({super.key});
 
   void _onSignUpTap(BuildContext context) {
-    Navigator.of(context).pop(
-      MaterialPageRoute(
-        builder: (context) => const SignUpScreen(),
-      ),
-    );
+    Navigator.of(context).pop("wat");
   }
 
   @override
@@ -35,13 +33,15 @@ class LogInScreen extends StatelessWidget {
                   ),
                 ),
                 Gaps.v20,
-                Text(
-                  "Manage your account, check notifications, comment on videos, and more.",
-                  style: TextStyle(
-                    fontSize: Sizes.size16,
-                    color: Colors.black45,
+                Opacity(
+                  opacity: 0.7,
+                  child: Text(
+                    "Manage your account, check notifications, comment on videos, and more.",
+                    style: TextStyle(
+                      fontSize: Sizes.size16,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 Gaps.v40,
                 AuthButton(
@@ -60,7 +60,6 @@ class LogInScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade50,
         elevation: 1,
         child: Padding(
           padding: const EdgeInsets.only(

@@ -1,28 +1,44 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/discover/doscover_screen.dart';
 import 'package:tiktik_clone/features/inbox/inbox_screen.dart';
-import 'package:tiktik_clone/features/main_navigation/widgets/nav_tab.dart';
-import 'package:tiktik_clone/features/main_navigation/widgets/post_video_button.dart';
+import 'package:tiktik_clone/common/widgets/main_navigation/widgets/nav_tab.dart';
+import 'package:tiktik_clone/common/widgets/main_navigation/widgets/post_video_button.dart';
 import 'package:tiktik_clone/features/users/user_profile_screen.dart';
 import 'package:tiktik_clone/features/videos/video_timeline_screen.dart';
+import 'package:tiktik_clone/l10n/utils.dart';
 
 class MainNavigationScreen extends StatefulWidget {
-  const MainNavigationScreen({super.key});
+  static const String routeName = "mainNavigation";
+
+  final String tab;
+
+  const MainNavigationScreen({super.key, required this.tab});
 
   @override
   State<MainNavigationScreen> createState() => _MainNavigationScreenState();
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 0;
   double _postVideoButtonScale = 1;
   double _fakeflypadding = 0.0;
 
+  final List<String> _tabs = [
+    "home",
+    "discover",
+    "xxxx",
+    "inbox",
+    "profile",
+  ];
+
+  late int _selectedIndex = _tabs.indexOf(widget.tab);
+
   void _onTap(int index) {
+    context.go("/${_tabs[index]}");
     setState(() {
       _selectedIndex = index;
     });
@@ -68,7 +84,9 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: _selectedIndex == 0 ? Colors.black : Colors.white,
+      backgroundColor: _selectedIndex == 0 || isDarkMode(context)
+          ? Colors.black
+          : Colors.white,
       body: Stack(
         children: [
           Offstage(
@@ -92,7 +110,9 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       bottomNavigationBar: BottomAppBar(
         elevation: 10,
         padding: const EdgeInsets.only(),
-        color: _selectedIndex == 0 ? Colors.black : Colors.white,
+        color: _selectedIndex == 0 || isDarkMode(context)
+            ? Colors.black
+            : Colors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: Sizes.size12,

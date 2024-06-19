@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktik_clone/common/widgets/video_configurations/video_config.dart';
+import 'package:tiktik_clone/constants/breakpoints.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -28,98 +30,118 @@ class _SettingsScreenState extends State<SettingsScreen> {
           "Settings",
         ),
       ),
-      body: ListView(
-        children: [
-          SwitchListTile.adaptive(
-            title: const Text(
-              "Enable Switch",
-            ),
-            subtitle: const Text(
-              "You guys have no switch?",
-            ),
-            value: _notifications,
-            onChanged: _onNotificationsChanged,
+      body: Align(
+        alignment: Alignment.center,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: Breakpoints.md,
           ),
-          CheckboxListTile.adaptive(
-            value: _notifications,
-            onChanged: _onNotificationsChanged,
-            title: const Text(
-              "I'm a baaad guysss",
-            ),
-            subtitle: const Text(
-              "Duh",
-            ),
-          ),
-          ListTile(
-            onTap: () {
-              showCupertinoModalPopup(
-                context: context,
-                builder: (context) => CupertinoActionSheet(
-                  title: const Text(
-                    "Are u sure?",
-                  ),
-                  actions: [
-                    CupertinoDialogAction(
-                      isDestructiveAction: true,
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: const Text(
-                        "Noo I'm suuure",
-                      ),
-                    ),
-                    const CupertinoDialogAction(
-                      child: Text(
-                        "Yes ur right",
-                      ),
-                    ),
-                  ],
+          child: ListView(
+            children: [
+              SwitchListTile.adaptive(
+                title: const Text(
+                  "Auto Mute",
                 ),
-              );
-            },
-            title: const Text(
-              "Log out (IOS / Bottom)",
-              style: TextStyle(
-                color: Colors.red,
-              ),
-            ),
-          ),
-          ListTile(
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text(
-                    "Are u sure?",
-                  ),
-                  content: const Text(
-                    "No ur not.",
-                  ),
-                  actions: [
-                    IconButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      icon: const FaIcon(
-                        FontAwesomeIcons.cat,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: const Text(
-                        "Yes ur right",
-                      ),
-                    ),
-                  ],
+                subtitle: const Text(
+                  "Video will be muted by default",
                 ),
-              );
-            },
-            title: const Text(
-              "Log out (Android)",
-              style: TextStyle(
-                color: Colors.red,
+                value: VideoConfigData.of(context).autoMute,
+                onChanged: (value) {
+                  VideoConfigData.of(context).toggleMuted();
+                },
               ),
-            ),
+              SwitchListTile.adaptive(
+                title: const Text(
+                  "Enable Switch",
+                ),
+                subtitle: const Text(
+                  "You guys have no switch?",
+                ),
+                value: _notifications,
+                onChanged: _onNotificationsChanged,
+              ),
+              CheckboxListTile.adaptive(
+                value: _notifications,
+                onChanged: _onNotificationsChanged,
+                title: const Text(
+                  "I'm a baaad guysss",
+                ),
+                subtitle: const Text(
+                  "Duh",
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  showCupertinoModalPopup(
+                    context: context,
+                    builder: (context) => CupertinoActionSheet(
+                      title: const Text(
+                        "Are u sure?",
+                      ),
+                      actions: [
+                        CupertinoDialogAction(
+                          isDestructiveAction: true,
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: const Text(
+                            "Noo I'm suuure",
+                          ),
+                        ),
+                        const CupertinoDialogAction(
+                          child: Text(
+                            "Yes ur right",
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                title: const Text(
+                  "Log out (IOS / Bottom)",
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text(
+                        "Are u sure?",
+                      ),
+                      content: const Text(
+                        "No ur not.",
+                      ),
+                      actions: [
+                        IconButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          icon: const FaIcon(
+                            FontAwesomeIcons.cat,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: const Text(
+                            "Yes ur right",
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                title: const Text(
+                  "Log out (Android)",
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              const BirthdayListTile(),
+              const AboutListTile(),
+            ],
           ),
-          const BirthdayListTile(),
-          const AboutListTile(),
-        ],
+        ),
       ),
     );
   }

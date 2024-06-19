@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
-import 'package:tiktik_clone/features/main_navigation/main_navigation_screen.dart';
+import 'package:tiktik_clone/common/widgets/main_navigation/main_navigation_screen.dart';
+import 'package:tiktik_clone/l10n/utils.dart';
 
 enum Direction { right, left }
 
@@ -44,13 +46,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
   }
 
   void _onEnterAppTab() {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const MainNavigationScreen(),
-      ),
-      (route) => false,
-    );
+    context.go('/home');
   }
 
   @override
@@ -75,6 +71,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
+          color: isDarkMode(context) ? Colors.black : Colors.white,
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: Sizes.size24,
@@ -86,7 +83,12 @@ class _TutorialScreenState extends State<TutorialScreen> {
               child: CupertinoButton(
                 color: Theme.of(context).primaryColor,
                 onPressed: _onEnterAppTab,
-                child: const Text("Enter the app!"),
+                child: const Text(
+                  "Enter the app!",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),

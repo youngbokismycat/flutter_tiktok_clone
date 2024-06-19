@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
+import 'package:tiktik_clone/l10n/utils.dart';
 
 class PostVideoButton extends StatelessWidget {
   const PostVideoButton({super.key, required this.inverted});
   final bool inverted;
   @override
   Widget build(BuildContext context) {
+    final isDark = isDarkMode(context);
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -45,14 +47,14 @@ class PostVideoButton extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Sizes.size10),
-            color: inverted ? Colors.black : Colors.white,
+            color: inverted && !isDark ? Colors.black : Colors.white,
           ),
           height: 32,
           width: 42,
           child: Center(
             child: FaIcon(
               FontAwesomeIcons.plus,
-              color: inverted ? Colors.white : Colors.black,
+              color: inverted && !isDark ? Colors.white : Colors.black,
               size: 19,
             ),
           ),

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/authentication/username_screen.dart';
 import 'package:tiktik_clone/features/authentication/log_in_screen.dart';
 import 'package:tiktik_clone/features/authentication/widgets/auth_button.dart';
+import 'package:tiktik_clone/l10n/utils.dart';
 
 class SignUpScreen extends StatelessWidget {
+  static const String routeUrl = "/";
+  static const String routeName = 'signUp';
   const SignUpScreen({super.key});
 
-  void _onLogInTap(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const LogInScreen(),
-      ),
-    );
+  void _onLogInTap(BuildContext context) async {
+    context.pushNamed(LogInScreen.routeName);
   }
 
   @override
@@ -29,21 +29,23 @@ class SignUpScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Gaps.v80,
-                    const Text(
+                    Text(
                       "Sign up for TikTok",
-                      style: TextStyle(
-                        fontSize: Sizes.size28,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style:
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
                     ),
                     Gaps.v20,
-                    const Text(
-                      "Create a profile, follow other accounts, make your own videos, and more.",
-                      style: TextStyle(
-                        fontSize: Sizes.size16,
-                        color: Colors.black45,
+                    const Opacity(
+                      opacity: 0.7,
+                      child: Text(
+                        "Create a profile, follow other accounts, make your own videos, and more.",
+                        style: TextStyle(
+                          fontSize: Sizes.size16,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                     Gaps.v40,
                     if (orientation == Orientation.portrait) ...[
@@ -83,7 +85,6 @@ class SignUpScreen extends StatelessWidget {
             ),
           ),
           bottomNavigationBar: BottomAppBar(
-            color: Colors.grey.shade50,
             elevation: 1,
             child: Padding(
               padding: const EdgeInsets.only(

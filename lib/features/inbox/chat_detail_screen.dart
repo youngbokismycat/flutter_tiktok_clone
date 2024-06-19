@@ -4,9 +4,13 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
+import 'package:tiktik_clone/l10n/utils.dart';
 
 class ChatDetailScreen extends StatefulWidget {
-  const ChatDetailScreen({super.key});
+  static const String routeName = "chatDetail";
+  static const String routeUrl = ':chatId';
+  final String chatId;
+  const ChatDetailScreen({super.key, required this.chatId});
 
   @override
   State<ChatDetailScreen> createState() => _ChatDetailScreenState();
@@ -16,21 +20,19 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf6f6f6),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFf6f6f6),
         title: ListTile(
           contentPadding: EdgeInsets.zero,
           horizontalTitleGap: Sizes.size8,
           leading: Stack(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: Sizes.size24,
-                foregroundImage: AssetImage(
+                foregroundImage: const AssetImage(
                   "assets/images/youngbok.jpg",
                 ),
                 child: Text(
-                  "youngbok",
+                  "youngbok(${widget.chatId})",
                 ),
               ),
               Positioned(
@@ -145,7 +147,6 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 horizontal: Sizes.size16,
                 vertical: Sizes.size14,
               ),
-              color: const Color(0xFFf6f6f6),
               child: Row(
                 children: [
                   Expanded(
@@ -171,7 +172,6 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                         hintStyle: TextStyle(
                           color: Colors.grey.shade500,
                         ),
-                        fillColor: Colors.white,
                         filled: true,
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -188,15 +188,19 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                   Container(
                     width: 40,
                     height: 40,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Color(0xFFdbdcde),
+                      color: isDarkMode(context)
+                          ? Colors.grey.shade500
+                          : const Color(0xFFdbdcde),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: FaIcon(
                         FontAwesomeIcons.solidPaperPlane,
                         size: Sizes.size20,
-                        color: Colors.white,
+                        color: isDarkMode(context)
+                            ? Colors.grey.shade800
+                            : Colors.white,
                       ),
                     ),
                   )

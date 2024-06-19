@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktik_clone/constants/breakpoints.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/discover/doscover_screen.dart';
@@ -20,188 +21,195 @@ class UserProfileScreen extends StatelessWidget {
       );
     }
 
-    return SafeArea(
-      child: DefaultTabController(
-        length: 2,
-        child: NestedScrollView(
-          physics: const BouncingScrollPhysics(),
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                title: const Text(
-                  "YoungBBok",
-                ),
-                actions: [
-                  IconButton(
-                    onPressed: onGearPressed,
-                    icon: const FaIcon(
-                      FontAwesomeIcons.gear,
-                      size: Sizes.size20,
-                    ),
+    return Scaffold(
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      body: SafeArea(
+        child: DefaultTabController(
+          length: 2,
+          child: NestedScrollView(
+            physics: const BouncingScrollPhysics(),
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return [
+                SliverAppBar(
+                  centerTitle: true,
+                  title: const Text(
+                    "YoungBBok",
                   ),
-                ],
-              ),
-              SliverToBoxAdapter(
-                child: Column(
-                  children: [
-                    const CircleAvatar(
-                      radius: 50,
-                      foregroundImage: AssetImage(
-                        "assets/images/youngbok.jpg",
+                  actions: [
+                    IconButton(
+                      onPressed: onGearPressed,
+                      icon: const FaIcon(
+                        FontAwesomeIcons.gear,
+                        size: Sizes.size20,
                       ),
-                      child: Text('youngbok'),
                     ),
-                    Gaps.v10,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "@youngbok",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: Sizes.size16,
-                          ),
+                  ],
+                ),
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      const CircleAvatar(
+                        radius: 50,
+                        foregroundImage: AssetImage(
+                          "assets/images/youngbok.jpg",
                         ),
-                        Gaps.h5,
-                        FaIcon(
-                          FontAwesomeIcons.solidCircleCheck,
-                          size: Sizes.size16,
-                          color: Colors.blue.shade300,
-                        )
-                      ],
-                    ),
-                    Gaps.v24,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const CountsCountWhat(
-                          counts: "37",
-                          countWhat: "Following",
-                        ),
-                        VerticalDivider(
-                          width: Sizes.size32,
-                          thickness: 1,
-                          color: Colors.grey.shade300,
-                          indent: Sizes.size14,
-                          endIndent: Sizes.size14,
-                        ),
-                        const CountsCountWhat(
-                          counts: "10.5M",
-                          countWhat: "Followers",
-                        ),
-                        VerticalDivider(
-                          width: Sizes.size32,
-                          thickness: 1,
-                          color: Colors.grey.shade300,
-                          indent: Sizes.size14,
-                          endIndent: Sizes.size14,
-                        ),
-                        const CountsCountWhat(
-                          counts: "149.3M",
-                          countWhat: "Likes",
-                        ),
-                      ],
-                    ),
-                    Gaps.v14,
-                    const FractionallySizedBox(
-                      widthFactor: 1,
-                      child: Row(
+                        child: Text('youngbok'),
+                      ),
+                      Gaps.v10,
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          FollowButton(),
-                          Gaps.h5,
-                          CustomButton(
-                            icon: FontAwesomeIcons.youtube,
+                          const Text(
+                            "@youngbok",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: Sizes.size16,
+                            ),
                           ),
                           Gaps.h5,
-                          CustomButton(
-                            icon: FontAwesomeIcons.caretDown,
+                          FaIcon(
+                            FontAwesomeIcons.solidCircleCheck,
+                            size: Sizes.size16,
+                            color: Colors.blue.shade300,
+                          )
+                        ],
+                      ),
+                      Gaps.v24,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const CountsCountWhat(
+                            counts: "37",
+                            countWhat: "Following",
+                          ),
+                          VerticalDivider(
+                            width: Sizes.size32,
+                            thickness: 1,
+                            color: Colors.grey.shade300,
+                            indent: Sizes.size14,
+                            endIndent: Sizes.size14,
+                          ),
+                          const CountsCountWhat(
+                            counts: "10.5M",
+                            countWhat: "Followers",
+                          ),
+                          VerticalDivider(
+                            width: Sizes.size32,
+                            thickness: 1,
+                            color: Colors.grey.shade300,
+                            indent: Sizes.size14,
+                            endIndent: Sizes.size14,
+                          ),
+                          const CountsCountWhat(
+                            counts: "149.3M",
+                            countWhat: "Likes",
                           ),
                         ],
                       ),
-                    ),
-                    Gaps.v14,
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: Sizes.size32),
-                      child: Text(
-                        "Youngbok cuteness is forever in the world look at him so cuuuuuuuuuuuuute",
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Gaps.v14,
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FaIcon(
-                          FontAwesomeIcons.link,
-                          size: Sizes.size12,
-                        ),
-                        Text(
-                          "https://youngbokissocuuuute.cute",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                          ),
-                        )
-                      ],
-                    ),
-                    Gaps.v20,
-                  ],
-                ),
-              ),
-              SliverPersistentHeader(
-                delegate: PersistentTabBar(),
-                pinned: true,
-              ),
-            ];
-          },
-          body: TabBarView(
-            children: [
-              GridView.builder(
-                keyboardDismissBehavior:
-                    ScrollViewKeyboardDismissBehavior.onDrag,
-                padding: EdgeInsets.zero,
-                itemCount: 20,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: Sizes.size2,
-                  mainAxisSpacing: Sizes.size2,
-                  childAspectRatio: 9 / 13,
-                ),
-                itemBuilder: (context, index) => Column(
-                  children: [
-                    AspectRatio(
-                      aspectRatio: 9 / 13,
-                      child: GridTile(
-                        footer: const Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                      Gaps.v14,
+                      const FractionallySizedBox(
+                        widthFactor: 1,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.play_arrow_outlined,
-                              color: Colors.white,
-                              size: Sizes.size24,
+                            FollowButton(),
+                            Gaps.h5,
+                            CustomButton(
+                              icon: FontAwesomeIcons.youtube,
                             ),
-                            Text(
-                              "4.1M",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: Sizes.size12,
-                                fontWeight: FontWeight.w500,
-                              ),
+                            Gaps.h5,
+                            CustomButton(
+                              icon: FontAwesomeIcons.caretDown,
                             ),
                           ],
                         ),
-                        child: FadeInImage.assetNetwork(
-                            fit: BoxFit.cover,
-                            placeholder: 'assets/images/placeholder.webp',
-                            image:
-                                "https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
                       ),
-                    ),
-                  ],
+                      Gaps.v14,
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: Sizes.size32),
+                        child: Text(
+                          "Youngbok cuteness is forever in the world look at him so cuuuuuuuuuuuuute",
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Gaps.v14,
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FaIcon(
+                            FontAwesomeIcons.link,
+                            size: Sizes.size12,
+                          ),
+                          Text(
+                            "https://youngbokissocuuuute.cute",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                            ),
+                          )
+                        ],
+                      ),
+                      Gaps.v20,
+                    ],
+                  ),
                 ),
-              ),
-              Container(),
-            ],
+                SliverPersistentHeader(
+                  delegate: PersistentTabBar(),
+                  pinned: true,
+                ),
+              ];
+            },
+            body: TabBarView(
+              children: [
+                LayoutBuilder(
+                  builder: (context, constraints) => GridView.builder(
+                    keyboardDismissBehavior:
+                        ScrollViewKeyboardDismissBehavior.onDrag,
+                    padding: EdgeInsets.zero,
+                    itemCount: 20,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount:
+                          constraints.maxWidth > Breakpoints.lg ? 6 : 3,
+                      crossAxisSpacing: Sizes.size2,
+                      mainAxisSpacing: Sizes.size2,
+                      childAspectRatio: 9 / 13,
+                    ),
+                    itemBuilder: (context, index) => Column(
+                      children: [
+                        AspectRatio(
+                          aspectRatio: 9 / 13,
+                          child: GridTile(
+                            footer: const Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.play_arrow_outlined,
+                                  color: Colors.white,
+                                  size: Sizes.size24,
+                                ),
+                                Text(
+                                  "4.1M",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: Sizes.size12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            child: FadeInImage.assetNetwork(
+                                fit: BoxFit.cover,
+                                placeholder: 'assets/images/placeholder.webp',
+                                image:
+                                    "https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(),
+              ],
+            ),
           ),
         ),
       ),

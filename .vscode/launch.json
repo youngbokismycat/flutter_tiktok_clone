@@ -9,7 +9,7 @@
             "name": "tiktik_clone",
             "request": "launch",
             "type": "dart",      
-            "program": "lib/main.dart",
+            "program": "lib/l10n/main.dart",
             "cwd": "${workspaceFolder}",
             "args": ["--debug"],
             "flutterMode": "debug"

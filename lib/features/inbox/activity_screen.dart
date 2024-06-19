@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
+import 'package:tiktik_clone/l10n/utils.dart';
 
 class ActivityScreen extends StatefulWidget {
+  static const String routeName = "activity";
+  static const String routeUrl = "/activity";
+
   const ActivityScreen({super.key});
 
   @override
@@ -213,26 +217,32 @@ class _ActivityScreenState extends State<ActivityScreen>
                     leading: Container(
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white,
+                          color: isDarkMode(context)
+                              ? Colors.grey.shade800
+                              : Colors.white,
                           border: Border.all(
-                            color: Colors.grey.shade400,
+                            color: isDarkMode(context)
+                                ? Colors.black
+                                : Colors.grey.shade400,
                             width: 0.6,
                           )),
                       width: Sizes.size52,
-                      child: const Center(
+                      child: Center(
                         child: FaIcon(
                           FontAwesomeIcons.bell,
-                          color: Colors.black,
+                          color:
+                              isDarkMode(context) ? Colors.white : Colors.black,
                         ),
                       ),
                     ),
                     title: RichText(
                       text: TextSpan(
                         text: "Account updates:",
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          color: Colors.black,
                           fontSize: Sizes.size16,
+                          color:
+                              isDarkMode(context) ? Colors.white : Colors.black,
                         ),
                         children: [
                           TextSpan(
@@ -270,9 +280,9 @@ class _ActivityScreenState extends State<ActivityScreen>
           SlideTransition(
             position: _panelAnimation,
             child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: Theme.of(context).appBarTheme.backgroundColor,
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(
                     Sizes.size5,
                   ),
@@ -288,9 +298,8 @@ class _ActivityScreenState extends State<ActivityScreen>
                     ListTile(
                       title: Row(
                         children: [
-                          FaIcon(
+                          Icon(
                             tab["icon"],
-                            color: Colors.black,
                             size: Sizes.size16,
                           ),
                           Gaps.h14,
