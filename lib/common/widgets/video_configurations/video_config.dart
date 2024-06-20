@@ -8,7 +8,7 @@ class VideoConfigData extends InheritedWidget {
       {super.key,
       required super.child,
       required this.autoMute,
-      required this.toggleMuted});
+      required this.toggleMuted,});
 
   static VideoConfigData of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<VideoConfigData>()!;

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
-import 'package:tiktik_clone/features/authentication/email_screen.dart';
 import 'package:tiktik_clone/features/onboarding/interests_screen.dart';
 import 'package:tiktik_clone/features/authentication/widgets/form_button.dart';
 

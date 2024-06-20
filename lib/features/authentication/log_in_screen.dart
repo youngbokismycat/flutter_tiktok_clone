@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/authentication/login_form_screen.dart';
-import 'package:tiktik_clone/features/authentication/sign_up_screen.dart';
 import 'package:tiktik_clone/features/authentication/widgets/auth_button.dart';
 
 class LogInScreen extends StatelessWidget {
@@ -47,12 +46,12 @@ class LogInScreen extends StatelessWidget {
                 AuthButton(
                     widget: LoginFormScreen(),
                     icon: FaIcon(FontAwesomeIcons.user),
-                    text: "Use email &  password"),
+                    text: "Use email &  password",),
                 Gaps.v16,
                 AuthButton(
                     widget: Placeholder(),
                     icon: FaIcon(FontAwesomeIcons.apple),
-                    text: "Continue with Apple"),
+                    text: "Continue with Apple",),
                 Gaps.v16,
               ],
             ),

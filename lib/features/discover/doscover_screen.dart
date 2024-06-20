@@ -1,12 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/constants/breakpoints.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/l10n/utils.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 final List<String> tabs = [
   "Top",
@@ -15,7 +12,7 @@ final List<String> tabs = [
   "Sounds",
   "LIVE",
   "Shopping",
-  "Brands"
+  "Brands",
 ];
 
 class DiscoverScreen extends StatefulWidget {
@@ -81,7 +78,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
               child: Icon(
                 Icons.filter_list_sharp,
               ),
-            )
+            ),
           ],
           title: ConstrainedBox(
             constraints: const BoxConstraints(
@@ -187,7 +184,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                           fit: BoxFit.cover,
                           placeholder: 'assets/images/placeholder.webp',
                           image:
-                              "https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+                              "https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",),
                     ),
                   ),
                   Gaps.v10,
@@ -233,7 +230,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                         const Text("2.0M"),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -245,7 +242,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
                     fontSize: Sizes.size20,
                   ),
                 ),
-              )
+              ),
           ],
         ),
       ),

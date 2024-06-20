@@ -71,7 +71,7 @@ class _UsernameScreenState extends State<UsernameScreen> {
               style: TextStyle(
                   fontSize: Sizes.size14,
                   color: Colors.black45,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: FontWeight.w400,),
             ),
             Gaps.v16,
             TextField(

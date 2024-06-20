@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:readmore/readmore.dart';
 import 'package:tiktik_clone/common/widgets/video_configurations/video_config.dart';
@@ -266,9 +264,9 @@ class _VideoPostState extends State<VideoPost>
                           style: TextStyle(color: Colors.white),
                         ),
                       ],
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -285,17 +283,17 @@ class _VideoPostState extends State<VideoPost>
                 ),
                 Gaps.v24,
                 const VideoButton(
-                    icon: FontAwesomeIcons.solidHeart, text: "2.2M"),
+                    icon: FontAwesomeIcons.solidHeart, text: "2.2M",),
                 Gaps.v24,
                 GestureDetector(
                     onTap: () => _onCommentsTap(context),
                     child: const VideoButton(
-                        icon: FontAwesomeIcons.solidComment, text: "32K")),
+                        icon: FontAwesomeIcons.solidComment, text: "32K",),),
                 Gaps.v24,
                 const VideoButton(icon: FontAwesomeIcons.share, text: "Share"),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
@@ -32,7 +31,7 @@ class InboxScreen extends StatelessWidget {
           IconButton(
             onPressed: () => _onDmPressed(context),
             icon: const FaIcon(FontAwesomeIcons.paperPlane),
-          )
+          ),
         ],
       ),
       body: ListView(

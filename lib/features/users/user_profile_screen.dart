@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/constants/breakpoints.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
-import 'package:tiktik_clone/features/discover/doscover_screen.dart';
 import 'package:tiktik_clone/features/users/widgets/count_counts_what.dart';
 import 'package:tiktik_clone/features/users/widgets/persistent_tab_bar.dart';
 import 'package:tiktik_clone/features/videos/settings_screen.dart';
@@ -71,7 +70,7 @@ class UserProfileScreen extends StatelessWidget {
                             FontAwesomeIcons.solidCircleCheck,
                             size: Sizes.size16,
                             color: Colors.blue.shade300,
-                          )
+                          ),
                         ],
                       ),
                       Gaps.v24,
@@ -145,7 +144,7 @@ class UserProfileScreen extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
                             ),
-                          )
+                          ),
                         ],
                       ),
                       Gaps.v20,
@@ -200,7 +199,7 @@ class UserProfileScreen extends StatelessWidget {
                                 fit: BoxFit.cover,
                                 placeholder: 'assets/images/placeholder.webp',
                                 image:
-                                    "https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
+                                    "https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",),
                           ),
                         ),
                       ],

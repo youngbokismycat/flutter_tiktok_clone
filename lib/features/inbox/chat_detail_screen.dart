@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
@@ -84,7 +82,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 FontAwesomeIcons.ellipsis,
                 size: Sizes.size20,
                 color: Colors.black,
-              )
+              ),
             ],
           ),
         ),
@@ -138,7 +136,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 );
               },
               separatorBuilder: (context, index) => Gaps.v10,
-              itemCount: 10),
+              itemCount: 10,),
           Positioned(
             bottom: 0,
             width: MediaQuery.of(context).size.width,
@@ -203,11 +201,11 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                             : Colors.white,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

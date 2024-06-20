@@ -12,7 +12,7 @@ class NavTab extends StatelessWidget {
       required this.icon,
       required this.onTap,
       required this.selectedicon,
-      required this.selectedIndex});
+      required this.selectedIndex,});
   final String text;
   final bool isSelected;
   final IconData icon;
@@ -50,7 +50,7 @@ class NavTab extends StatelessWidget {
                       color: selectedIndex == 0 || isDark
                           ? Colors.white
                           : Colors.grey.shade700,
-                      fontSize: Sizes.size10),
+                      fontSize: Sizes.size10,),
                 ),
               ],
             ),

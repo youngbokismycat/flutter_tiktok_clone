@@ -4,7 +4,6 @@ import 'package:tiktik_clone/constants/gaps.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/authentication/birthday_screen.dart';
 import 'package:tiktik_clone/features/authentication/widgets/form_button.dart';
-import 'package:tiktik_clone/features/authentication/password_screen.dart';
 
 class PasswordScreen extends StatefulWidget {
   const PasswordScreen({super.key});

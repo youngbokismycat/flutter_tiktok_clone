@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -152,7 +151,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                       scale: _postVideoButtonScale,
                       child: PostVideoButton(
                         inverted: _selectedIndex != 0,
-                      )),
+                      ),),
                 ),
               ),
               Gaps.h24,

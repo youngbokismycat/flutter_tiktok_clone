@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/common/widgets/video_configurations/video_config.dart';
 import 'package:tiktik_clone/constants/breakpoints.dart';
-import 'package:tiktik_clone/constants/sizes.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

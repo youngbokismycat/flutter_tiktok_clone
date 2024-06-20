@@ -29,13 +29,13 @@ class FormButton extends StatelessWidget {
                 ? isDarkMode(context)
                     ? Colors.grey.shade800
                     : Colors.grey.shade100
-                : Theme.of(context).primaryColor),
+                : Theme.of(context).primaryColor,),
         child: AnimatedDefaultTextStyle(
           duration: const Duration(milliseconds: 100),
           style: TextStyle(
               color: disabled ? Colors.grey.shade400 : Colors.white,
               fontWeight: FontWeight.w500,
-              fontSize: Sizes.size16),
+              fontSize: Sizes.size16,),
           child: Text(
             text,
             textAlign: TextAlign.center,

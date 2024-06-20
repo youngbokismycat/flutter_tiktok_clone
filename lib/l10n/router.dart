@@ -61,7 +61,7 @@ final router = GoRouter(initialLocation: "/", routes: [
             chatId: chatId,
           );
         },
-      )
+      ),
     ],
   ),
-]);
+],);

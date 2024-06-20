@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/videos/widgets/video_post.dart';
 
 class VideoTimeLineScreen extends StatefulWidget {

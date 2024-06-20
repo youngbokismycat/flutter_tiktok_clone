@@ -7,7 +7,7 @@ import 'package:tiktik_clone/l10n/utils.dart';
 class PersistentTabBar extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+      BuildContext context, double shrinkOffset, bool overlapsContent,) {
     final isDark = isDarkMode(context);
     return Align(
       child: Container(

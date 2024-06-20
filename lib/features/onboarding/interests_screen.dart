@@ -100,7 +100,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
         title: AnimatedOpacity(
             duration: const Duration(milliseconds: 300),
             opacity: _showTitle ? 1 : 0,
-            child: const Text("Choose your interests")),
+            child: const Text("Choose your interests"),),
       ),
       body: Scrollbar(
         controller: _scrollController,
@@ -137,9 +137,9 @@ class _InterestsScreenState extends State<InterestsScreen> {
                   spacing: 15,
                   children: [
                     for (var interest in InterestsScreen.interests)
-                      InterestButton(interest: interest)
+                      InterestButton(interest: interest),
                   ],
-                )
+                ),
               ],
             ),
           ),

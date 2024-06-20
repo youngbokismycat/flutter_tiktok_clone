@@ -6,7 +6,6 @@ import 'package:tiktik_clone/constants/sizes.dart';
 import 'package:tiktik_clone/features/authentication/username_screen.dart';
 import 'package:tiktik_clone/features/authentication/log_in_screen.dart';
 import 'package:tiktik_clone/features/authentication/widgets/auth_button.dart';
-import 'package:tiktik_clone/l10n/utils.dart';
 
 class SignUpScreen extends StatelessWidget {
   static const String routeUrl = "/";
@@ -52,12 +51,12 @@ class SignUpScreen extends StatelessWidget {
                       const AuthButton(
                           widget: UsernameScreen(),
                           icon: FaIcon(FontAwesomeIcons.user),
-                          text: "Use email &  password"),
+                          text: "Use email &  password",),
                       Gaps.v16,
                       const AuthButton(
                           widget: Placeholder(),
                           icon: FaIcon(FontAwesomeIcons.apple),
-                          text: "Continue with Apple"),
+                          text: "Continue with Apple",),
                       Gaps.v16,
                     ],
                     if (orientation == Orientation.landscape)
@@ -67,18 +66,18 @@ class SignUpScreen extends StatelessWidget {
                             child: AuthButton(
                                 widget: UsernameScreen(),
                                 icon: FaIcon(FontAwesomeIcons.user),
-                                text: "Use email &  password"),
+                                text: "Use email &  password",),
                           ),
                           Gaps.h16,
                           Expanded(
                             child: AuthButton(
                                 widget: Placeholder(),
                                 icon: FaIcon(FontAwesomeIcons.apple),
-                                text: "Continue with Apple"),
+                                text: "Continue with Apple",),
                           ),
                           Gaps.v16,
                         ],
-                      )
+                      ),
                   ],
                 ),
               ),

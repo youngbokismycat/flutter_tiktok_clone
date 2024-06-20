@@ -225,7 +225,7 @@ class _ActivityScreenState extends State<ActivityScreen>
                                 ? Colors.black
                                 : Colors.grey.shade400,
                             width: 0.6,
-                          )),
+                          ),),
                       width: Sizes.size52,
                       child: Center(
                         child: FaIcon(
@@ -268,7 +268,7 @@ class _ActivityScreenState extends State<ActivityScreen>
                       size: Sizes.size16,
                     ),
                   ),
-                )
+                ),
             ],
           ),
           if (_showBarrier)
@@ -311,7 +311,7 @@ class _ActivityScreenState extends State<ActivityScreen>
                           ),
                         ],
                       ),
-                    )
+                    ),
                 ],
               ),
             ),

@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktik_clone/common/widgets/video_configurations/video_config.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
-import 'package:tiktik_clone/features/authentication/email_screen.dart';
-import 'package:tiktik_clone/features/authentication/log_in_screen.dart';
-import 'package:tiktik_clone/features/authentication/username_screen.dart';
-import 'package:tiktik_clone/features/discover/doscover_screen.dart';
-import 'package:tiktik_clone/features/inbox/activity_screen.dart';
-import 'package:tiktik_clone/features/inbox/chat_detail_screen.dart';
-import 'package:tiktik_clone/common/widgets/main_navigation/main_navigation_screen.dart';
-import 'package:tiktik_clone/features/onboarding/interests_screen.dart';
-import 'package:tiktik_clone/features/authentication/sign_up_screen.dart';
 import 'package:tiktik_clone/l10n/router.dart';
 
 void main() async {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktik_clone/constants/sizes.dart';
-import 'package:tiktik_clone/features/authentication/username_screen.dart';
 
 class AuthButton extends StatelessWidget {
   final String text;
@@ -13,7 +12,7 @@ class AuthButton extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => widget,
-        ));
+        ),);
   }
 
   const AuthButton({
